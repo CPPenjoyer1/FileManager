@@ -23,9 +23,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     openPath(QDir::homePath());
 }
 
-// ------------------------
-// UI
-// ------------------------
 void MainWindow::initUI()
 {
     auto *topButtons = new QHBoxLayout;
@@ -45,9 +42,6 @@ void MainWindow::initUI()
     treeView->setHeaderHidden(true);
 }
 
-// ------------------------
-// SIGNALS
-// ------------------------
 void MainWindow::initConnections()
 {
     connect(treeView, &QTreeView::clicked, this, &MainWindow::onDirClicked);
@@ -57,9 +51,6 @@ void MainWindow::initConnections()
     connect(btnUp, &QPushButton::clicked, this, &MainWindow::goUp);
 }
 
-// ------------------------
-// LOGIC
-// ------------------------
 void MainWindow::openPath(const QString &path)
 {
     QModelIndex idx = manager->setCurrentPath(path);
